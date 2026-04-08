@@ -2,6 +2,8 @@ import requests
 import yfinance as yf
 import time
 from datetime import datetime
+import pytz
+TR = pytz.timezone("Europe/Istanbul")
 
 TOKEN = "8659665684:AAGGHYNzLRQNVRlQdEoYJHJJG-u13_9v0fE"
 CHAT_ID = "8533718752"
@@ -106,7 +108,7 @@ def tara():
 
     al_list.sort(key=lambda x: x["puan"], reverse=True)
 
-    msg = "BIST TARAMA - " + datetime.now().strftime("%d.%m.%Y %H:%M") + "\n"
+    msg = "BIST TARAMA - " + datetime.now(TR).strftime("%d.%m.%Y %H:%M") + "\n"
     msg += "Taranan: " + str(len(HISSELER)) + " hisse\n\n"
 
     if al_list:
@@ -129,5 +131,5 @@ def tara():
     print("Bitti!")
     print(msg)
 
-tg("Bot baslatildi - " + datetime.now().strftime("%d.%m.%Y %H:%M"))
+tg("Bot baslatildi - " + datetime.now(TR).strftime("%d.%m.%Y %H:%M"))
 tara()
