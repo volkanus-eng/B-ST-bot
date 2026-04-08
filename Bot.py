@@ -104,7 +104,7 @@ def tara():
                 al_list.append(r)
             else:
                 sat_list.append(r)
-        time.sleep(1)
+        time.sleep(2)
 
     al_list.sort(key=lambda x: x["puan"], reverse=True)
 
